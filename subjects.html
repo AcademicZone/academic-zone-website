@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Subjects</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header><h1>Subjects</h1></header>
+  <main id="subject-list"></main>
+  <footer><p>© 2025 Academic Zone</p></footer>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const selectedClass = params.get("class");
+    const subjects = {
+      '1': ['Maths', 'English', 'EVS'],
+      '2': ['Maths', 'English', 'EVS'],
+      '3': ['Maths', 'English', 'EVS'],
+      '4': ['Maths', 'English', 'EVS'],
+      '5': ['Maths', 'English', 'EVS'],
+      '6': ['Maths', 'Science', 'English', 'SST'],
+      '7': ['Maths', 'Science', 'English', 'SST'],
+      '8': ['Maths', 'Science', 'English', 'SST'],
+      '9': ['Maths', 'Science'],
+      '10': ['Maths', 'Science'],
+      '11': ['Maths', 'Physics'],
+      '12': ['Maths', 'Physics']
+    };
+
+    const container = document.getElementById("subject-list");
+    if (subjects[selectedClass]) {
+      container.innerHTML = `<h2>Subjects for Class ${selectedClass}</h2>`;
+      subjects[selectedClass].forEach(sub => {
+        container.innerHTML += `<a href="content.html?class=${selectedClass}&subject=${sub}">${sub}</a><br>`;
+      });
+    } else {
+      container.innerHTML = "<p>No subjects found for this class.</p>";
+    }
+  </script>
+</body>
+</html>

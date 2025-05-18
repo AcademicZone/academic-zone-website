@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learning Content</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header><h1>Learning Content</h1></header>
+  <main id="content"></main>
+  <footer><p>© 2025 Academic Zone</p></footer>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const cls = params.get("class");
+    const subject = params.get("subject");
+
+    document.getElementById("content").innerHTML = `
+      <h2>${subject} - Class ${cls}</h2>
+      <p><a href="videos/${cls}-${subject}.mp4">Watch Video</a></p>
+      <p><a href="notes/${cls}-${subject}.pdf" download>Download Notes</a></p>
+      <p><a href="quiz.html?class=${cls}&subject=${subject}">Take Quiz</a></p>
+    `;
+  </script>
+</body>
+</html>
